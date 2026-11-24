@@ -109,6 +109,26 @@
 - [order_validation.py](code_samples/order_validation.py)：銘柄コード・数量・注文種別・価格の入力検証
 - [test_order_validation.py](tests/test_order_validation.py)：正常系・異常系のpytestテスト
 
+### 候補銘柄の一括データ分析
+
+- [candidate_analysis.py](code_samples/candidate_analysis.py)：CSVの重複除去、SQLite照会、過去の確定株価による移動平均線算出
+- [test_candidate_analysis.py](tests/test_candidate_analysis.py)：CSV異常系、履歴不足、未来データの除外、欠損値のテスト
+
+独自の銘柄選定・チャネル判定ロジックは含めず、データ処理部分を独立したサンプルとして再構成しています。
+
+### APIレスポンスの整形・検証
+
+- [api_response_normalization.py](code_samples/api_response_normalization.py)：架空の建玉応答をGUI表示用に正規化、数量の整合性を検証
+- [test_api_response_normalization.py](tests/test_api_response_normalization.py)：買建・売建、拘束数量、入力異常系のテスト
+
+架空データのみを利用し、実口座情報、認証処理、発注API通信は含みません。
+
+**テスト実行方法**（リポジトリのルートで実行）
+
+```bash
+python -m pytest -q
+```
+
 公開サンプルは実運用ソースの複製ではなく、設計上の考え方とPython実装の一部を示すものです。
 
 ## 本人の担当範囲・開発プロセス
